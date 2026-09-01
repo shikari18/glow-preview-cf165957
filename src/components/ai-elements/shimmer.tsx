@@ -40,7 +40,7 @@ const ShimmerComponent = ({
 }: TextShimmerProps) => {
   const MotionComponent = getMotionComponent(
     Component as keyof JSX.IntrinsicElements
-  );
+  ) as React.ComponentType<Record<string, unknown>>;
 
   const dynamicSpread = useMemo(
     () => (children?.length ?? 0) * spread,
@@ -61,7 +61,7 @@ const ShimmerComponent = ({
           "--spread": `${dynamicSpread}px`,
           backgroundImage:
             "var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))",
-        } as React.ComponentProps<typeof MotionComponent>["style"]
+        } as CSSProperties
       }
       transition={{
         duration,
