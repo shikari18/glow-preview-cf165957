@@ -128,7 +128,7 @@ export function StudyChat() {
       <div className="border-t border-border p-3">
         <div className="mx-auto w-full max-w-3xl">
           <PromptInput
-            onSubmit={(event) => {
+            onSubmit={(_message, event) => {
               event.preventDefault();
               void send(input);
             }}
